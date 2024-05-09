@@ -137,7 +137,7 @@ kubectl get pods
 ```
 8. If deployment or pods creation delays, check status here:
 ```
-Kubectl decribe deploy all 
+Kubectl describe deploy all 
 ```
 or
 ```
