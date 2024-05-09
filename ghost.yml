@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghost
+  namespace: assignment-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ghost
+  template:
+    metadata:
+      labels:
+        app: ghost
+    spec:
+      containers:
+      - name: ghost
+        image: kwameds/ghost:latest
+        ports:
+        - containerPort: 2368
+        env:
+        - name: database__client
+          value: mysql
+        - name: database__connection__host
+          value: mysql-service
+        - name: database__connection__user
+          value: root
+        - name: database__connection__password
+          value: example
+        - name: database__connection__database
+          value: ghost
